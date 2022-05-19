@@ -19,8 +19,12 @@ behaviors:
         gamma: 0.99
         strength: 1.0
       gail:
-        strength: 0.4
-        demo_path: F1Track\Circular1.demo
-    max_steps: 500000
+        strength: 0.0
+        gamma: 0.99
+        demo_path: F1Track\RealTrack.demo
+    behavioral_cloning:
+        demo_path: F1Track\RealTrack.demo
+        strength: 0.0
+    max_steps: 5000000
     time_horizon: 64
     summary_freq: 5000

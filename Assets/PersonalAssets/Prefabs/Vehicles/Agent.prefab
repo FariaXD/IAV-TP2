@@ -923,6 +923,7 @@ GameObject:
   - component: {fileID: 4239047808223361379}
   - component: {fileID: 6210652858637759291}
   - component: {fileID: 8630602370309498685}
+  - component: {fileID: 5775391427873415780}
   m_Layer: 6
   m_Name: Agent
   m_TagString: Player
@@ -937,8 +938,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4943344662898272596}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 7.474, y: 0.145, z: -4.919}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 7.474, y: 1.633, z: -4.919}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5369276564588829105}
@@ -947,7 +948,7 @@ Transform:
   - {fileID: 762174714332078103}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!54 &13467717929572997
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -975,8 +976,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.059808664, y: 0.04522121, z: 0.30873716}
-  m_Center: {x: 0.00054708496, y: 0.047047064, z: 0.007505238}
+  m_Size: {x: 0.11263414, y: 0.04522121, z: 0.30873716}
+  m_Center: {x: 0.00023072213, y: 0.047047064, z: 0.007505238}
 --- !u!114 &2490223761657522400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,17 +1006,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 2
-    NumStackedVectorObservations: 2
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
     m_ActionSpec:
-      m_NumContinuousActions: 3
-      BranchSizes: 
-    VectorActionSize: 03000000
+      m_NumContinuousActions: 0
+      BranchSizes: 030000000300000002000000
+    VectorActionSize: 030000000300000002000000
     VectorActionDescriptions: []
-    VectorActionSpaceType: 1
+    VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
-  m_InferenceDevice: 2
+  m_InferenceDevice: 3
   m_BehaviorType: 0
   m_BehaviorName: CarController
   TeamId: 0
@@ -1035,7 +1036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 5
+  DecisionPeriod: 1
   TakeActionsBetweenDecisions: 1
 --- !u!114 &4239047808223361379
 MonoBehaviour:
@@ -1068,7 +1069,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 25000
+  MaxStep: 6000
   wheels:
   - {fileID: 2470086675524332352}
   - {fileID: 2402492979612154204}
@@ -1077,7 +1078,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 8944364959377698162}
   motorTorque: 100
   breakingForce: 200
-  turnRadius: 8
+  turnRadius: 4
   steeringMax: 55
   downForceValue: 50
   currentRigidBody: {fileID: 13467717929572997}
@@ -1099,6 +1100,36 @@ MonoBehaviour:
   currentCheckPoint: 0
   numOfCheckPoints: 0
   canEndLap: 0
+--- !u!114 &5775391427873415780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943344662898272596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPerceptionSensor
+  m_DetectableTags:
+  - OutOfBounds
+  - Grass
+  - Checkpoint
+  - CheckeredFlag
+  m_RaysPerDirection: 3
+  m_MaxRayDegrees: 60
+  m_SphereCastRadius: 0.05
+  m_RayLength: 2
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 896
+  m_ObservationStacks: 1
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 0, g: 0, b: 0, a: 1}
+  m_StartVerticalOffset: 0.05
+  m_EndVerticalOffset: 0
 --- !u!1 &5053453303153389783
 GameObject:
   m_ObjectHideFlags: 0

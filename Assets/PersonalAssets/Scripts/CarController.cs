@@ -31,28 +31,33 @@ public class CarController : Agent
     public override void OnEpisodeBegin()
     {
         ResetSimulation();
+        for (int i = 0; i < wheels.Length; i++)
+            wheels[i].brakeTorque = Mathf.Infinity;
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        if(chkManager.canEndLap){
-            Vector3 dirToPos = (chkManager.GetCheckeredFlagPos().position - transform.position).normalized;
-            sensor.AddObservation(dirToPos.x);
-            sensor.AddObservation(dirToPos.z);
+        if(!chkManager.canEndLap){
+            Vector3 nextCheckpoint = chkManager.GetCurrentCheckpointPos().position;
+            float dir = Vector3.Dot(nextCheckpoint, transform.forward);
+            sensor.AddObservation(dir);
         }
         else{
-            Vector3 dirToPos = (chkManager.GetCurrentCheckpointPos().position - transform.position).normalized;
-            sensor.AddObservation(dirToPos.x);
-            sensor.AddObservation(dirToPos.z);
+            Vector3 nextCheckpoint = chkManager.GetCheckeredFlagPos().position;
+            float dir = Vector3.Dot(nextCheckpoint, transform.forward);
+            sensor.AddObservation(dir);
         }
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        float horizontal = actions.ContinuousActions[0];
-        float vertical = (actions.ContinuousActions[1] < 0) ? 0 : actions.ContinuousActions[1];
-        bool brakePressed = actions.ContinuousActions[2] == 1;
+        int horizontal = actions.DiscreteActions[0];
+        int vertical = actions.DiscreteActions[1];
+        bool brakePressed = actions.DiscreteActions[2] == 1;
 
+        horizontal = (horizontal == 2) ? -1 : horizontal;
+        vertical = (vertical == 2) ? -1 : vertical;
+        Debug.Log(GetCumulativeReward());
         ForwardVehicle(vertical);
         SteerVehicle(horizontal);
         BrakeVehicle(brakePressed);
@@ -60,18 +65,23 @@ public class CarController : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
-        continuousActions[0] = Input.GetAxis("Horizontal");
-        continuousActions[1] = (Input.GetAxis("Vertical") < 0)?0:Input.GetAxis("Vertical");
-        continuousActions[2] = Input.GetKey(KeyCode.Space) ? 1 : 0;
+        ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
+
+        int horizontal = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));
+        int vertical = Mathf.RoundToInt(Input.GetAxisRaw("Vertical"));
+
+
+        discreteActions[0] = (horizontal == -1) ? 2 : horizontal;
+        discreteActions[1] = (vertical == -1) ? 2 : vertical;
+        discreteActions[2] = Input.GetKey(KeyCode.Space) ? 1 : 0;
     }
 
     private void OnTriggerEnter(Collider collision) {
         if (collision.gameObject.TryGetComponent<Checkpoint>(out Checkpoint checkpoint))
         {
             bool validCheckPoint = chkManager.CheckpointPassed(checkpoint);
-            if(validCheckPoint) AddReward(1f);
-            else AddReward(-1f);
+            if (validCheckPoint) AddReward(1f);
+            else AddReward(-2f);   
         }
 
         if(collision.gameObject.TryGetComponent<CheckeredFlag>(out CheckeredFlag checkeredFlag)){
@@ -79,16 +89,35 @@ public class CarController : Agent
                 AddReward(1f);
                 EndEpisode();
             }
-            else AddReward(-1f);
         }
     }
 
     private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.TryGetComponent<Ground>(out Ground ground))
+        if (collision.gameObject.TryGetComponent<OutofBounds>(out OutofBounds outofBounds))
         {
             AddReward(-1f);
-            EndEpisode();
+            //EndEpisode();
         }
+
+        if (collision.gameObject.TryGetComponent<Grass>(out Grass g))
+        {
+            AddReward(-0.1f);
+            //EndEpisode();
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent<OutofBounds>(out OutofBounds outofBounds))
+        {
+            AddReward(-0.1f);  
+        }
+
+        if (collision.gameObject.TryGetComponent<Grass>(out Grass g))
+        {
+            AddReward(-0.05f);
+        }
+
     }
 
 
@@ -101,12 +130,17 @@ public class CarController : Agent
         startingRotate = transform.rotation;
     }
 
+    
+
     void FixedUpdate()
     {
         AddDownForce();
         AntiRoll(wheels[0], wheels[1]);
         AntiRoll(wheels[2], wheels[3]);
         KPH = Mathf.Round(currentRigidBody.velocity.magnitude * 3.6f); //Calculates KPH
+        if(GetCumulativeReward() < -8f){
+            EndEpisode();
+        }
     }
 
     void ForwardVehicle(float throttle)
@@ -114,7 +148,6 @@ public class CarController : Agent
         currentAccelaration = (motorTorque / 2) * throttle;
         for (int i = 2; i < wheels.Length; i++)
             wheels[i].motorTorque = currentAccelaration;
-        AddReward(throttle/MaxStep);
     }
 
     void SteerVehicle(float steer)

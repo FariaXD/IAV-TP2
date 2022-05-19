@@ -2,22 +2,49 @@
     "CarController": {
         "checkpoints": [
             {
-                "steps": 259488,
-                "file_path": "results\\Teste1\\CarController\\CarController-259488.onnx",
+                "steps": 435148,
+                "file_path": "results\\Teste1\\CarController\\CarController-435148.onnx",
                 "reward": null,
-                "creation_time": 1652831177.7962315,
+                "creation_time": 1652883485.7499382,
                 "auxillary_file_paths": [
-                    "results\\Teste1\\CarController\\CarController-259488.pt"
+                    "results\\Teste1\\CarController\\CarController-435148.pt"
+                ]
+            },
+            {
+                "steps": 499969,
+                "file_path": "results\\Teste1\\CarController\\CarController-499969.onnx",
+                "reward": 6.61466658115387,
+                "creation_time": 1652883709.9650729,
+                "auxillary_file_paths": [
+                    "results\\Teste1\\CarController\\CarController-499969.pt"
+                ]
+            },
+            {
+                "steps": 999995,
+                "file_path": "results\\Teste1\\CarController\\CarController-999995.onnx",
+                "reward": 2.6990544889122248,
+                "creation_time": 1652885066.1757352,
+                "auxillary_file_paths": [
+                    "results\\Teste1\\CarController\\CarController-999995.pt"
+                ]
+            },
+            {
+                "steps": 1428661,
+                "file_path": "results\\Teste1\\CarController\\CarController-1428661.onnx",
+                "reward": 0.9832000732421875,
+                "creation_time": 1652886150.5308506,
+                "auxillary_file_paths": [
+                    "results\\Teste1\\CarController\\CarController-1428661.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 259488,
+            "steps": 1428661,
             "file_path": "results\\Teste1\\CarController.onnx",
-            "reward": null,
-            "creation_time": 1652831177.7962315,
+            "reward": 0.9832000732421875,
+            "creation_time": 1652886150.5308506,
             "auxillary_file_paths": [
-                "results\\Teste1\\CarController\\CarController-259488.pt"
+                "results\\Teste1\\CarController\\CarController-1428661.pt"
             ]
         }
     },

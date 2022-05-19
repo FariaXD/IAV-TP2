@@ -8,6 +8,9 @@ TagManager:
   - Checkpoints
   - Checkpoint
   - StartingPos
+  - Street
+  - Grass
+  - OutOfBounds
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - Agent
   - Checkpoint
   - Flag
-  - 
+  - OutofBounds
   - 
   - 
   - 
