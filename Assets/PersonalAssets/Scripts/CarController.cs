@@ -20,11 +20,15 @@ public class CarController : Agent
     public float KPH;
     private CheckpointManager chkManager;
     private GameObject startingPos;
-    private Quaternion startingRotate;
+    public Quaternion startingRotate;
+
+    public GameManager gameManager;
 
     void ResetSimulation(){
-        transform.localPosition = startingPos.transform.position;
-        transform.localRotation = startingRotate;
+        if(!gameManager.racing){
+            transform.localPosition = startingPos.transform.position;
+            transform.localRotation = startingRotate;
+        }
         chkManager.Reset();
     }
 
@@ -57,7 +61,6 @@ public class CarController : Agent
 
         horizontal = (horizontal == 2) ? -1 : horizontal;
         vertical = (vertical == 2) ? -1 : vertical;
-        Debug.Log(GetCumulativeReward());
         ForwardVehicle(vertical);
         SteerVehicle(horizontal);
         BrakeVehicle(brakePressed);
@@ -81,7 +84,7 @@ public class CarController : Agent
         {
             bool validCheckPoint = chkManager.CheckpointPassed(checkpoint);
             if (validCheckPoint) AddReward(1f);
-            else AddReward(-2f);   
+            else AddReward(-0.2f);   
         }
 
         if(collision.gameObject.TryGetComponent<CheckeredFlag>(out CheckeredFlag checkeredFlag)){

@@ -1,0 +1,65 @@
+{
+    "CarController": {
+        "checkpoints": [
+            {
+                "steps": 4841549,
+                "file_path": "results\\Real2\\CarController\\CarController-4841549.onnx",
+                "reward": -8.100004583597183,
+                "creation_time": 1652969305.849635,
+                "auxillary_file_paths": [
+                    "results\\Real2\\CarController\\CarController-4841549.pt"
+                ]
+            },
+            {
+                "steps": 4999987,
+                "file_path": "results\\Real2\\CarController\\CarController-4999987.onnx",
+                "reward": null,
+                "creation_time": 1652969907.618335,
+                "auxillary_file_paths": [
+                    "results\\Real2\\CarController\\CarController-4999987.pt"
+                ]
+            },
+            {
+                "steps": 5187243,
+                "file_path": "results\\Real2\\CarController\\CarController-5187243.onnx",
+                "reward": null,
+                "creation_time": 1652970553.7183857,
+                "auxillary_file_paths": [
+                    "results\\Real2\\CarController\\CarController-5187243.pt"
+                ]
+            },
+            {
+                "steps": 5206867,
+                "file_path": "results\\Real2\\CarController\\CarController-5206867.onnx",
+                "reward": null,
+                "creation_time": 1652970666.6104279,
+                "auxillary_file_paths": [
+                    "results\\Real2\\CarController\\CarController-5206867.pt"
+                ]
+            },
+            {
+                "steps": 5224018,
+                "file_path": "results\\Real2\\CarController\\CarController-5224018.onnx",
+                "reward": -8.100000262260437,
+                "creation_time": 1652970750.0886161,
+                "auxillary_file_paths": [
+                    "results\\Real2\\CarController\\CarController-5224018.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 5224018,
+            "file_path": "results\\Real2\\CarController.onnx",
+            "reward": -8.100000262260437,
+            "creation_time": 1652970750.0886161,
+            "auxillary_file_paths": [
+                "results\\Real2\\CarController\\CarController-5224018.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.11.0+cpu"
+    }
+}

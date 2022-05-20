@@ -11,6 +11,9 @@ TagManager:
   - Street
   - Grass
   - OutOfBounds
+  - NumberOfCar
+  - LookAt
+  - Grid
   layers:
   - Default
   - TransparentFX

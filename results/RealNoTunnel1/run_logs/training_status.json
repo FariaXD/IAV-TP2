@@ -1,0 +1,65 @@
+{
+    "CarController": {
+        "checkpoints": [
+            {
+                "steps": 3999942,
+                "file_path": "results\\RealNoTunnel1\\CarController\\CarController-3999942.onnx",
+                "reward": null,
+                "creation_time": 1652990397.9490469,
+                "auxillary_file_paths": [
+                    "results\\RealNoTunnel1\\CarController\\CarController-3999942.pt"
+                ]
+            },
+            {
+                "steps": 4000198,
+                "file_path": "results\\RealNoTunnel1\\CarController\\CarController-4000198.onnx",
+                "reward": null,
+                "creation_time": 1652990461.02643,
+                "auxillary_file_paths": [
+                    "results\\RealNoTunnel1\\CarController\\CarController-4000198.pt"
+                ]
+            },
+            {
+                "steps": 4048248,
+                "file_path": "results\\RealNoTunnel1\\CarController\\CarController-4048248.onnx",
+                "reward": null,
+                "creation_time": 1652990979.8040884,
+                "auxillary_file_paths": [
+                    "results\\RealNoTunnel1\\CarController\\CarController-4048248.pt"
+                ]
+            },
+            {
+                "steps": 4098169,
+                "file_path": "results\\RealNoTunnel1\\CarController\\CarController-4098169.onnx",
+                "reward": -8.050002008676529,
+                "creation_time": 1652991113.1889567,
+                "auxillary_file_paths": [
+                    "results\\RealNoTunnel1\\CarController\\CarController-4098169.pt"
+                ]
+            },
+            {
+                "steps": 4112425,
+                "file_path": "results\\RealNoTunnel1\\CarController\\CarController-4112425.onnx",
+                "reward": null,
+                "creation_time": 1652991230.307498,
+                "auxillary_file_paths": [
+                    "results\\RealNoTunnel1\\CarController\\CarController-4112425.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4112425,
+            "file_path": "results\\RealNoTunnel1\\CarController.onnx",
+            "reward": null,
+            "creation_time": 1652991230.307498,
+            "auxillary_file_paths": [
+                "results\\RealNoTunnel1\\CarController\\CarController-4112425.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.11.0+cpu"
+    }
+}

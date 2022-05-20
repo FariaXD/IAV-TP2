@@ -2,58 +2,58 @@
     "CarController": {
         "checkpoints": [
             {
-                "steps": 1499979,
-                "file_path": "results\\Real1\\CarController\\CarController-1499979.onnx",
+                "steps": 3499962,
+                "file_path": "results\\Real1\\CarController\\CarController-3499962.onnx",
                 "reward": null,
-                "creation_time": 1652914427.232829,
+                "creation_time": 1652965838.1222403,
                 "auxillary_file_paths": [
-                    "results\\Real1\\CarController\\CarController-1499979.pt"
+                    "results\\Real1\\CarController\\CarController-3499962.pt"
                 ]
             },
             {
-                "steps": 1999995,
-                "file_path": "results\\Real1\\CarController\\CarController-1999995.onnx",
+                "steps": 3999964,
+                "file_path": "results\\Real1\\CarController\\CarController-3999964.onnx",
                 "reward": null,
-                "creation_time": 1652916182.6002722,
+                "creation_time": 1652966913.8483915,
                 "auxillary_file_paths": [
-                    "results\\Real1\\CarController\\CarController-1999995.pt"
+                    "results\\Real1\\CarController\\CarController-3999964.pt"
                 ]
             },
             {
-                "steps": 2393970,
-                "file_path": "results\\Real1\\CarController\\CarController-2393970.onnx",
+                "steps": 4417249,
+                "file_path": "results\\Real1\\CarController\\CarController-4417249.onnx",
                 "reward": null,
-                "creation_time": 1652917547.2688484,
+                "creation_time": 1652967758.0884316,
                 "auxillary_file_paths": [
-                    "results\\Real1\\CarController\\CarController-2393970.pt"
+                    "results\\Real1\\CarController\\CarController-4417249.pt"
                 ]
             },
             {
-                "steps": 2499972,
-                "file_path": "results\\Real1\\CarController\\CarController-2499972.onnx",
-                "reward": 41.299998700618744,
-                "creation_time": 1652917803.8936357,
+                "steps": 4499950,
+                "file_path": "results\\Real1\\CarController\\CarController-4499950.onnx",
+                "reward": null,
+                "creation_time": 1652968182.1197317,
                 "auxillary_file_paths": [
-                    "results\\Real1\\CarController\\CarController-2499972.pt"
+                    "results\\Real1\\CarController\\CarController-4499950.pt"
                 ]
             },
             {
-                "steps": 2931015,
-                "file_path": "results\\Real1\\CarController\\CarController-2931015.onnx",
+                "steps": 4698522,
+                "file_path": "results\\Real1\\CarController\\CarController-4698522.onnx",
                 "reward": null,
-                "creation_time": 1652918680.079774,
+                "creation_time": 1652968611.787507,
                 "auxillary_file_paths": [
-                    "results\\Real1\\CarController\\CarController-2931015.pt"
+                    "results\\Real1\\CarController\\CarController-4698522.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 2931015,
+            "steps": 4698522,
             "file_path": "results\\Real1\\CarController.onnx",
             "reward": null,
-            "creation_time": 1652918680.079774,
+            "creation_time": 1652968611.787507,
             "auxillary_file_paths": [
-                "results\\Real1\\CarController\\CarController-2931015.pt"
+                "results\\Real1\\CarController\\CarController-4698522.pt"
             ]
         }
     },
