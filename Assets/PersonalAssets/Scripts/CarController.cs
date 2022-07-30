@@ -155,8 +155,6 @@ public class CarController : Agent
 
     void SteerVehicle(float steer)
     {
-        //ackerman steering formula
-        //steerAngle - Mathf. Rad2Deg * Mathf.Atan (2.55f / (radius + (1.5f / 2))) * horizontalInput;
         float horizontal = steer;
         if (horizontal > 0)
         {
