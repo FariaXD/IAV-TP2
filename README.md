@@ -1,6 +1,7 @@
 # IAV-TP2
- MLAgents Car Sim
+MLAgents Car Sim
 
+Project developed to be presented in class (Computer Science and Multimedia, Virtual Environments Interaction course)
 
 Development of a machine learning agent simulating an Formula 1 car, that learns how to drive in different tracks.
 
